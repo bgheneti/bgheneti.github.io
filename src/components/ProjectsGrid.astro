@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 // Get and sort projects by date (newest first)
 const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
 
 // Create alternating rows: 1 item, 2 items, 1 item, 2 items...
 function createAlternatingRows(projects) {
