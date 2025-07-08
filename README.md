@@ -5,7 +5,7 @@
 
 Personal portfolio website built with Astro, featuring projects, links, and a clean, responsive design.
 
-The design was adapted from the [Gridsome x Forestry starter template](https://github.com/itsnwa/gridsome-forestry-starter) for Vue.js. This repo only uses Astro.
+The design was originally adapted from the [Gridsome x Forestry starter template](https://github.com/itsnwa/gridsome-forestry-starter) for Vue.js. This repo only uses Astro.
 
 ## ✨ Features
 
@@ -79,8 +79,7 @@ All commands are run from the root of the project:
 - **Auto-deploy**: Pushes to `template` branch trigger GitHub Actions
 - **Build**: Creates static files in `/dist/`
 - **Deploy**: Files deployed to `gh-pages` branch
-- **Live**: Available at <https://bgheneti.github.io>
-
+- **Live**: Available at <https://gheneti.com> via Cloudflare (default is github pages) 
 ## 🎨 Design System
 
 The site uses a custom CSS design system with:
