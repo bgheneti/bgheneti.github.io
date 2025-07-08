@@ -19,7 +19,20 @@ const stickyPage = ['/', '/projects', '/projects/'].includes(currentPath);
       </a>
     </div>
     <nav class="nav right">
-      <a class="nav__link" href="/">Story</a>
+      <a class:list={['nav__link', { active: currentPath === '/' }]} href="/">Story</a>
+      <a class:list={['nav__link', 'section', { active: currentPath.startsWith('/projects') }]} href="/projects">Timeline</a>
+      <a class:list={['nav__link', { active: currentPath.startsWith('/links') }]} href="/links">Links</a>
+      <a class="nav__link external" href="https://github.com/bgheneti" target="_blank" rel="noopener noreferrer">Github</a>
+    </nav>
+    
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav class="mobile-nav" id="mobile-nav">
+      <a class:list={['nav__link', { active: currentPath === '/' }]} href="/">Story</a>
       <a class:list={['nav__link', 'section', { active: currentPath.startsWith('/projects') }]} href="/projects">Timeline</a>
       <a class:list={['nav__link', { active: currentPath.startsWith('/links') }]} href="/links">Links</a>
       <a class="nav__link external" href="https://github.com/bgheneti" target="_blank" rel="noopener noreferrer">Github</a>
@@ -48,6 +61,31 @@ const stickyPage = ['/', '/projects', '/projects/'].includes(currentPath);
   }
   
   window.addEventListener('scroll', handleScroll);
+  
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  
+  hamburger?.addEventListener('click', () => {
+    mobileNav?.classList.toggle('active');
+    hamburger?.classList.toggle('active');
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger?.contains(e.target) && !mobileNav?.contains(e.target)) {
+      mobileNav?.classList.remove('active');
+      hamburger?.classList.remove('active');
+    }
+  });
+  
+  // Close mobile menu when clicking nav links
+  document.querySelectorAll('.mobile-nav .nav__link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav?.classList.remove('active');
+      hamburger?.classList.remove('active');
+    });
+  });
 </script>
 
 <style>
@@ -56,7 +94,7 @@ const stickyPage = ['/', '/projects', '/projects/'].includes(currentPath);
   height: 6rem;
   z-index: 10;
   background-color: hsla(100, 100%, 100%, 0.9);
-  transition: height 0.5s ease;
+  transition: height var(--animation-duration-slow) var(--animation-easing);
 }
 
 .header.scrolled {
@@ -85,36 +123,127 @@ const stickyPage = ['/', '/projects', '/projects/'].includes(currentPath);
 h3 {
   display: inline;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 .logo {
   vertical-align: sub;
-  margin-left: 0.5rem;
+  margin-left: var(--spacing-sm);
   height: 1.5rem;
-  transition: opacity 0.5s;
+  transition: opacity var(--animation-duration-slow);
 }
 
 .scrolled-logo {
   opacity: 0;
 }
 
+@media (max-width: 768px) {
+  .scrolled-logo {
+    opacity: 1;
+  }
+}
+
 .nav {
   display: flex;
-  gap: 3rem;
+  gap: var(--spacing-2xl);
 }
 
 .nav__link {
-  font-size: 0.9rem;
+  font-size: var(--font-size-base);
   font-weight: 600;
   text-decoration: none;
   color: inherit;
   margin-top: 4px;
   padding-bottom: 4px;
   border-bottom: 1px solid transparent;
-  transition: border 0.15s;
+  transition: border var(--animation-duration-fast);
 }
 
-.nav__link:hover {
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 20px;
+  height: 2px;
+  background: var(--color-contrast);
+  transition: transform var(--animation-duration-base) var(--animation-easing);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2xl);
+  transition: right var(--animation-duration-base) var(--animation-easing);
+  z-index: 1000;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav .nav__link {
+  font-size: var(--font-size-2xl);
+  padding: var(--spacing-lg);
+  min-height: var(--touch-target-min);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: var(--border-radius-base);
+  transition: all var(--animation-duration-base) var(--animation-easing);
+}
+
+@media (hover: hover) {
+  .mobile-nav .nav__link:hover {
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+  }
+}
+
+.mobile-nav .nav__link:active {
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+}
+
+@media (hover: hover) {
+  .nav__link:hover {
+    border-color: inherit;
+  }
+}
+
+.nav__link:active {
   border-color: inherit;
 }
 
@@ -124,5 +253,31 @@ h3 {
 
 .nav__link.active {
   border-color: inherit;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .nav.right {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+    max-width: 150px;
+  }
+  
+  .logo {
+    height: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h3 {
+    max-width: 120px;
+  }
 }
 </style>

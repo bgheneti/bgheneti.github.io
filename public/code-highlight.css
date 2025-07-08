@@ -1,32 +1,5 @@
 /* Prism.js syntax highlighting styles */
-pre[class*="language-"] {
-  color: #383a42;
-  background: #fafafa;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-  
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-  border-radius: 6px;
-}
-
+pre[class*="language-"],
 code[class*="language-"] {
   color: #383a42;
   background: #fafafa;
@@ -39,15 +12,20 @@ code[class*="language-"] {
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  
   -moz-tab-size: 2;
   -o-tab-size: 2;
   tab-size: 2;
-  
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 6px;
 }
 
 /* Inline code */

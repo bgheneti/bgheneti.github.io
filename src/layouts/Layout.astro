@@ -37,17 +37,59 @@ const { title = 'Banti Gheneti', description = themeData.site_description, isHom
 }
 
 body {
+  /* Color system */
   --color-base: rgb(255, 255, 255);
   --color-base-1: rgb(243, 243, 243);
   --color-contrast: rgb(0, 0, 0);
   --color-contrast-1: rgb(43, 43, 43);
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
+  --color-accent: #FF81D8;
+  --color-accent-bg: rgba(255, 129, 215, 0.08);
+  --color-text-muted: #555f77;
+  --color-text-light: #41485a;
+  
+  /* Typography */
+  --font-family-base: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-family-mono: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --font-size-xs: 0.6rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 0.9rem;
+  --font-size-md: 1.1rem;
+  --font-size-lg: 1.15em;
+  --font-size-xl: 1.2rem;
+  --font-size-2xl: 2em;
+  --font-size-3xl: 3em;
+  
+  /* Spacing system */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Animation */
+  --animation-duration-fast: 0.15s;
+  --animation-duration-base: 0.3s;
+  --animation-duration-slow: 0.5s;
+  --animation-duration-slower: 0.8s;
+  --animation-easing: ease;
+  
+  /* Layout */
+  --border-radius-sm: 3px;
+  --border-radius-base: 4px;
+  --border-radius-md: 6px;
+  --container-width: 800px;
+  --container-width-lg: 1200px;
+  --touch-target-min: 44px;
+  
+  font-family: var(--font-family-base);
+  margin: 0;
   padding: 0;
   font-size: 16px;
   background: var(--color-base);
   color: var(--color-contrast);
-  transition: background 0.5s ease;
+  transition: background var(--animation-duration-slow) var(--animation-easing);
 }
 
 body.dark {
@@ -87,13 +129,13 @@ a {
 
 .content p {
   line-height: 1.5;
-  color: #41485a;
+  color: var(--color-text-light);
   font-size: 16px;
   font-weight: 500;
 }
 
 .content a {
-  color: #FF81D8;
+  color: var(--color-accent);
 }
 
 img {
@@ -104,5 +146,110 @@ img {
   display: block;
   font-weight: 700;
   margin-bottom: 0.5rem;
+}
+
+/* ===== GLOBAL ANIMATIONS ===== */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== SHARED UTILITY CLASSES ===== */
+/* Animation utilities */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp var(--animation-duration-slower) var(--animation-easing) forwards;
+}
+
+.staggered-1 { animation-delay: 0.1s; }
+.staggered-2 { animation-delay: 0.2s; }
+.staggered-3 { animation-delay: 0.3s; }
+.staggered-4 { animation-delay: 0.4s; }
+.staggered-5 { animation-delay: 0.5s; }
+.staggered-6 { animation-delay: 0.6s; }
+
+/* Layout utilities */
+.grid-container {
+  margin: var(--spacing-xl) auto;
+  max-width: var(--container-width);
+  padding: 0 var(--spacing-md);
+}
+
+.grid-container-lg {
+  max-width: var(--container-width-lg);
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center { text-align: center; }
+.text-accent { color: var(--color-accent); }
+.text-muted { color: var(--color-text-muted); }
+.text-light { color: var(--color-text-light); }
+
+/* Interactive utilities */
+.card-base {
+  transition: all var(--animation-duration-base) var(--animation-easing);
+  border-radius: var(--border-radius-base);
+}
+
+.hover-lift {
+  transition: transform var(--animation-duration-base) var(--animation-easing);
+}
+
+.hover-scale {
+  transition: transform var(--animation-duration-slow) ease-out;
+}
+
+.accent-bg {
+  background: var(--color-accent-bg);
+}
+
+/* Touch-friendly interactions */
+@media (max-width: 768px) {
+  .nav__link {
+    padding: var(--spacing-sm);
+    min-height: var(--touch-target-min);
+  }
+  
+  .card-base:active {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* Hover states for devices that support it */
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+  
+  .hover-accent:hover {
+    color: var(--color-accent);
+  }
+  
+  .hover-accent-bg:hover {
+    background: var(--color-accent-bg);
+  }
+}
+
+/* Remove sticky hover states on touch devices */
+@media (hover: none) {
+  .nav__link:hover,
+  .project-card:hover,
+  .link-link:hover {
+    background: transparent;
+    color: inherit;
+    transform: none;
+  }
 }
 </style>

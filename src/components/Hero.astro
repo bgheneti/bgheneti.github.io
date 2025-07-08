@@ -7,14 +7,13 @@ const heroImage = themeData.hero_img;
 <div class="hero">
   <div style="width:100%">
     <div class="hero-txt">
-      <img class="hero-img" src={`/${heroImage}`} alt="Hero image" />
+      <img class="hero-img fade-in-up staggered-1 hover-lift" src={`/${heroImage}`} alt="Hero image" />
       {themeData.hero_content.map((item) => (
-        <div class="hero-content">
+        <div class="hero-content fade-in-up staggered-2">
           <div class="hero-title-wrapper">
             <h2 class="hero-title" set:html={item.title} />
           </div>
           <p class="hero-subtitle" set:html={item.text} />
-          <div class="clear"></div>
         </div>
       ))}
     </div>
@@ -24,35 +23,18 @@ const heroImage = themeData.hero_img;
 <style>
 .hero {
   text-align: left;
-  width: 800px;
+  width: var(--container-width);
   max-width: 100%;
   margin: 0 auto;
-  padding: 4rem 0 4rem 0;
+  padding: var(--spacing-3xl) 0;
 }
 
 .hero-content {
   padding-bottom: 2em;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
 }
 
-.hero-content:nth-child(2) { animation-delay: 0.2s; }
-.hero-content:nth-child(3) { animation-delay: 0.4s; }
-.hero-content:nth-child(4) { animation-delay: 0.6s; }
-.hero-content:nth-child(5) { animation-delay: 0.8s; }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.clear {
-  clear: both;
-}
 
 @media only screen and (max-width: 600px) {
   .hero-txt {
@@ -78,9 +60,9 @@ const heroImage = themeData.hero_img;
 }
 
 .hero-title {
-  font-size: 3em;
+  font-size: var(--font-size-3xl);
   font-weight: 400;
-  margin: 0 0.5em 0 0;
+  margin: 0 var(--spacing-sm) 0 0;
 }
 
 .hero-title-wrapper {
@@ -96,34 +78,35 @@ const heroImage = themeData.hero_img;
 }
 
 .hero-subtitle {
-  font-size: 1.15em;
+  font-size: var(--font-size-lg);
   font-weight: 500;
   line-height: 1.68;
   padding: 0;
   margin: 0;
-  color: #555f77;
+  color: var(--color-text-muted);
   text-align: justify;
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
 .hero-img {
   width: 45%;
   float: right;
   margin-left: 30px;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 0.1s;
-  transition: transform 0.3s ease;
+  margin-bottom: var(--spacing-md);
+  transition: transform var(--animation-duration-base) var(--animation-easing);
 }
 
-.hero-img:hover {
-  transform: translateY(-4px);
+@media (hover: hover) {
+  .hero-img:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.hero-img:active {
+  transform: translateY(-2px);
 }
 
 .hero-subtitle :global(a) {
-  color: #FF81D8 !important;
+  color: var(--color-accent) !important;
   text-decoration: none;
 }
 
@@ -132,10 +115,9 @@ const heroImage = themeData.hero_img;
 }
 
 .hero-subtitle :global(p) {
-  font-size: 1.15em;
+  font-size: var(--font-size-lg);
   font-weight: 500;
   line-height: 1.68;
-  color: #555f77;
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color: var(--color-text-muted);
 }
 </style>
