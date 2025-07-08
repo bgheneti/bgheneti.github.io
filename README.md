@@ -78,8 +78,8 @@ All commands are run from the root of the project:
 ### Deployment
 - **Auto-deploy**: Pushes to `template` branch trigger GitHub Actions
 - **Build**: Creates static files in `/dist/`
-- **Deploy**: Files deployed to `gh-pages` branch
-- **Live**: Available at <https://gheneti.com> via Cloudflare (default is github pages) 
+- **Deploy**: Files deployed to `gh-pages` branch and Cloudflare (can be edited in deploy workflow).
+- **Live**: Available at <https://gheneti.com> via Cloudflare 
 ## 🎨 Design System
 
 The site uses a custom CSS design system with:

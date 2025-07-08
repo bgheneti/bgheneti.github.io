@@ -35,3 +35,9 @@ jobs:
           clean: true
           clean-exclude: |
             .nojekyll
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: pages deploy dist --project-name=personal-website
+
