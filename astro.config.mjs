@@ -6,7 +6,9 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   integrations: [mdx()],
   site: 'https://bgheneti.github.io',
+  base: '/',
+  output: 'static',
   markdown: {
     syntaxHighlight: 'prism',
-  },
+  }
 });

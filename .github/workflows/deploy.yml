@@ -21,7 +21,7 @@ jobs:
          git config --global user.email "banti@gheneti.com"
          git config --global user.name "Banti Gheneti"
 
-      - name: Build Gridsome site
+      - name: Build Astro site
         run: npm run build
       
       - name: Deploy to GitHub Pages
@@ -32,3 +32,6 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+          clean: true
+          clean-exclude: |
+            .nojekyll
