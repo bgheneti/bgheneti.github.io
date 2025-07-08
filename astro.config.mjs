@@ -10,5 +10,8 @@ export default defineConfig({
   output: 'static',
   markdown: {
     syntaxHighlight: 'prism',
+  },
+  build: {
+    assets: 'static'
   }
 });
