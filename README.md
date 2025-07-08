@@ -1,47 +1,91 @@
-# Astro Starter Kit: Minimal
+# Banti Gheneti - Personal Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+[![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&style=for-the-badge&up_color=green&up_message=online&url=http://gheneti.com)](http://gheneti.com)
+[![Deploy Status](https://img.shields.io/github/actions/workflow/status/bgheneti/bgheneti.github.io/deploy.yml?branch=template&style=for-the-badge&logo=github-actions&label=Deploy)](https://github.com/bgheneti/bgheneti.github.io/actions/workflows/deploy.yml)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Personal portfolio website built with Astro, featuring projects, links, and a clean, responsive design.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The design was adapted from the [Gridsome x Forestry starter template](https://github.com/itsnwa/gridsome-forestry-starter) for Vue.js. This repo only uses Astro.
+
+## ✨ Features
+
+- **Responsive Design** - Mobile-first with hamburger navigation
+- **Content Collections** - Markdown-based projects and links
+- **Code Highlighting** - Prism.js syntax highlighting
+- **Modern CSS** - Custom properties, animations, and utilities
+- **Touch-Friendly** - Proper mobile interactions and hover states
+- **Fast Performance** - Static site generation with Astro
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```text
 /
-├── public/
+├── public/                     # Assets referenced in project
+│   ├── code-highlight.css      # Prism.js styling
+│   ├── favicon.svg
+|   └── uploads/                # Images and other assets for individual pages
 ├── src/
+│   ├── components/
+│   │   ├── Header.astro        # Navigation with mobile menu
+│   │   ├── Hero.astro          # Home page hero section
+│   │   ├── Footer.astro        # Site footer
+│   │   ├── ProjectsGrid.astro  # Project display grid
+│   │   └── LinksGrid.astro     # Links display grid
+│   ├── content/
+│   │   ├── config.ts           # Content collections config
+│   │   ├── projects/           # Project markdown files
+│   │   └── links/              # Link markdown files
+│   ├── layouts/
+│   │   └── Layout.astro        # Base layout with global styles
 │   └── pages/
-│       └── index.astro
-└── package.json
+│       ├── index.astro         # Home page
+│       ├── projects/
+│       │   ├── index.astro     # Projects listing
+│       │   └── [...slug].astro # Individual project pages
+│       └── links/
+│           └── index.astro     # Links page
+├── data/
+│   └── theme.json              # Site configuration and content
+├── .github/workflows/
+│   └── deploy.yml              # GitHub Pages deployment
+└── astro.config.mjs            # Astro configuration
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the root of the project:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm install`             | Install dependencies                             |
+| `npm run dev`             | Start local dev server at `localhost:4321`       |
+| `npm run build`           | Build production site to `./dist/`               |
+| `npm run preview`         | Preview build locally before deploying           |
+| `npm run astro check`     | Run type checking                                |
 
-## 👀 Want to learn more?
+## 🔧 Configuration
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Content Management
+- **Projects**: Add `.md` files to `/src/content/projects/`
+- **Links**: Add `.md` files to `/src/content/links/`
+- **Site Data**: Edit `/data/theme.json` for site settings
+
+### Styling
+- **Global Styles**: `/src/layouts/Layout.astro`
+- **CSS Variables**: Defined in Layout.astro for consistent theming
+- **Component Styles**: Scoped styles in each `.astro` component
+
+### Deployment
+- **Auto-deploy**: Pushes to `template` branch trigger GitHub Actions
+- **Build**: Creates static files in `/dist/`
+- **Deploy**: Files deployed to `gh-pages` branch
+- **Live**: Available at <https://bgheneti.github.io>
+
+## 🎨 Design System
+
+The site uses a custom CSS design system with:
+- **Color tokens**: `--color-base`, `--color-accent`, etc.
+- **Typography scale**: `--font-size-xs` to `--font-size-3xl`
+- **Spacing system**: `--spacing-xs` to `--spacing-3xl`
+- **Animation utilities**: Fade-in animations with staggered delays
+- **Responsive utilities**: Mobile-first breakpoints
