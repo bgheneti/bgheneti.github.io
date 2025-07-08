@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Layout title={project.data.title}>
+  <div class="project" style={`background-color: ${project.data.project_bg_color || 'var(--color-base)'}; color: ${project.data.project_fg_color || 'var(--color-contrast)'}`}>
+    <div class="container">
+      <div class="project-header">
+        <h1 class="project-title">{project.data.title}</h1>
+        <div class="project-info">
+          {project.data.categories && project.data.categories.length > 0 && (
+            <div class="categories-container">
+              <div class="categories">
+                <span class="label">Categories</span>
+                {project.data.categories.map((category, index) => (
+                  <span class="category">{category}</span>
+                ))}
+              </div>
+            </div>
+          )}
+          <div class="year-container">
+            <span class="label">Year</span>
+            <div>{project.data.date.getFullYear()}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="content">
+        <Content />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+.project-header {
+  padding: 10vh 0 4rem 0;
+}
+
+.project-title {
+  font-size: 2rem;
+  margin: 0 0 4rem 0;
+  padding: 0;
+}
+
+.project-info {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+.project-info > div {
+  margin-right: 4rem;
+}
+
+.project-info > div:last-of-type {
+  margin: 0;
+}
+
+.category:after {
+  content: ', ';
+}
+
+.category:last-of-type:after {
+  content: '';
+}
+</style>

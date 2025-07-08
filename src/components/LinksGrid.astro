@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+
+const links = await getCollection('links');
+const sortedLinks = links.sort((a, b) => {
+  if (!a.data.date || !b.data.date) return 0;
+  return b.data.date.getTime() - a.data.date.getTime();
+});
+---
+
+<div class="links-list">
+  {sortedLinks.map((link) => (
+    <a href={link.data.url} class="link-link">
+      <div class="link-item">
+        <h2 class="link-title">{link.data.title}</h3>
+        <p>{link.data.excerpt}<p>
+      </div>
+    </a>
+  ))}
+</div>
+
+<style>
+.links-list {
+  margin: auto;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.link-item {
+  max-width: 720px;
+  margin:auto;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-base-1);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  transition: all 0.3s ease;
+}
+
+.link-item:nth-child(1) { animation-delay: 0.1s; }
+.link-item:nth-child(2) { animation-delay: 0.2s; }
+.link-item:nth-child(3) { animation-delay: 0.3s; }
+.link-item:nth-child(4) { animation-delay: 0.4s; }
+.link-item:nth-child(5) { animation-delay: 0.5s; }
+.link-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link-item:last-child {
+  border-bottom: none;
+}
+
+.link-link:hover {
+  background: rgba(255, 129, 215, 0.08);
+  transition: background 1s ease;
+  color: #FF81D8;
+}
+
+.link-link:hover .link-item {
+  transform: translateX(8px);
+  padding-left: 1rem;
+  border-radius: 4px;
+}
+
+.link-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.link-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+.link-item:hover .link-title {
+  transform: translateX(4px);
+}
+
+.link-meta {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+</style>

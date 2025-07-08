@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import themeData from '../../data/theme.json';
+---
+
+<Layout title={themeData.site_name} description={themeData.site_description} isHomePage={true}>
+  <div class="container">
+    <Hero />
+  </div>
+</Layout>

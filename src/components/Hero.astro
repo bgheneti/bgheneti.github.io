@@ -1,0 +1,141 @@
+---
+import themeData from '../../data/theme.json';
+
+const heroImage = themeData.hero_img;
+---
+
+<div class="hero">
+  <div style="width:100%">
+    <div class="hero-txt">
+      <img class="hero-img" src={`/${heroImage}`} alt="Hero image" />
+      {themeData.hero_content.map((item) => (
+        <div class="hero-content">
+          <div class="hero-title-wrapper">
+            <h2 class="hero-title" set:html={item.title} />
+          </div>
+          <p class="hero-subtitle" set:html={item.text} />
+          <div class="clear"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+.hero {
+  text-align: left;
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 4rem 0 4rem 0;
+}
+
+.hero-content {
+  padding-bottom: 2em;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-content:nth-child(2) { animation-delay: 0.2s; }
+.hero-content:nth-child(3) { animation-delay: 0.4s; }
+.hero-content:nth-child(4) { animation-delay: 0.6s; }
+.hero-content:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-txt {
+    width: 100%;
+  }
+  
+  .hero-img {
+    float: none !important;
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  
+  .hero-title-wrapper {
+    float: none !important;
+    display: block !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-title {
+    font-size: 2em !important;
+    margin: 0 !important;
+  }
+}
+
+.hero-title {
+  font-size: 3em;
+  font-weight: 400;
+  margin: 0 0.5em 0 0;
+}
+
+.hero-title-wrapper {
+  margin: 0px;
+  float: left;
+  display: inline-block;
+}
+
+.hero-title :global(p),
+.hero-subtitle :global(p) {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-subtitle {
+  font-size: 1.15em;
+  font-weight: 500;
+  line-height: 1.68;
+  padding: 0;
+  margin: 0;
+  color: #555f77;
+  text-align: justify;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+.hero-img {
+  width: 45%;
+  float: right;
+  margin-left: 30px;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.1s;
+  transition: transform 0.3s ease;
+}
+
+.hero-img:hover {
+  transform: translateY(-4px);
+}
+
+.hero-subtitle :global(a) {
+  color: #FF81D8 !important;
+  text-decoration: none;
+}
+
+.hero-subtitle :global(a):hover {
+  text-decoration: underline;
+}
+
+.hero-subtitle :global(p) {
+  font-size: 1.15em;
+  font-weight: 500;
+  line-height: 1.68;
+  color: #555f77;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+</style>

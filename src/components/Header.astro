@@ -1,0 +1,128 @@
+---
+import themeData from '../../data/theme.json';
+
+const currentPath = Astro.url.pathname;
+const stickyPage = ['/', '/projects', '/projects/'].includes(currentPath);
+---
+
+<header class:list={['header', { sticky: stickyPage }]} id="header">
+  <div class="container">
+    <div class="left">
+      <a href="/" class="home-link">
+        <h3>Banti Gheneti</h3>
+        <img 
+          src="/tea_pixiedust.gif"
+          alt="Logo"
+          class="logo"
+          id="logo"
+        />
+      </a>
+    </div>
+    <nav class="nav right">
+      <a class="nav__link" href="/">Story</a>
+      <a class:list={['nav__link', 'section', { active: currentPath.startsWith('/projects') }]} href="/projects">Timeline</a>
+      <a class:list={['nav__link', { active: currentPath.startsWith('/links') }]} href="/links">Links</a>
+      <a class="nav__link external" href="https://github.com/bgheneti" target="_blank" rel="noopener noreferrer">Github</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  let scrolled = false;
+  
+  function handleScroll() {
+    const header = document.getElementById('header');
+    const logo = document.getElementById('logo');
+    const newScrolled = window.scrollY > 0;
+    
+    if (newScrolled !== scrolled) {
+      scrolled = newScrolled;
+      if (scrolled) {
+        header?.classList.add('scrolled');
+        logo?.classList.add('scrolled-logo');
+      } else {
+        header?.classList.remove('scrolled');
+        logo?.classList.remove('scrolled-logo');
+      }
+    }
+  }
+  
+  window.addEventListener('scroll', handleScroll);
+</script>
+
+<style>
+.header {
+  position: relative;
+  height: 6rem;
+  z-index: 10;
+  background-color: hsla(100, 100%, 100%, 0.9);
+  transition: height 0.5s ease;
+}
+
+.header.scrolled {
+  height: 3rem;
+}
+
+.header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header > .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.home-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+h3 {
+  display: inline;
+  margin: 0;
+}
+
+.logo {
+  vertical-align: sub;
+  margin-left: 0.5rem;
+  height: 1.5rem;
+  transition: opacity 0.5s;
+}
+
+.scrolled-logo {
+  opacity: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  margin-top: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border 0.15s;
+}
+
+.nav__link:hover {
+  border-color: inherit;
+}
+
+.nav__link.section.active {
+  border-color: inherit;
+}
+
+.nav__link.active {
+  border-color: inherit;
+}
+</style>

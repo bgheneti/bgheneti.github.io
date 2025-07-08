@@ -1,0 +1,108 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import themeData from '../../data/theme.json';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  isHomePage?: boolean;
+}
+
+const { title = 'Banti Gheneti', description = themeData.site_description, isHomePage = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/code-highlight.css">
+  <title>{title} - personal website</title>
+  <meta name="description" content={description}>
+</head>
+<body class={themeData.dark_mode ? 'dark' : ''}>
+  <div class:list={['layout', { 'sticky-header': isHomePage }]}>
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</body>
+</html>
+
+<style is:global>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --color-base: rgb(255, 255, 255);
+  --color-base-1: rgb(243, 243, 243);
+  --color-contrast: rgb(0, 0, 0);
+  --color-contrast-1: rgb(43, 43, 43);
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  margin:0;
+  padding: 0;
+  font-size: 16px;
+  background: var(--color-base);
+  color: var(--color-contrast);
+  transition: background 0.5s ease;
+}
+
+body.dark {
+  --color-base: rgb(0, 0, 0);
+  --color-base-1: rgb(43, 43, 43);
+  --color-contrast: rgb(255, 255, 255);
+  --color-contrast-1: rgb(243, 243, 243);
+}
+
+h1 {
+  letter-spacing: -0.01em;
+}
+
+.layout {
+  padding: 0;
+}
+
+.layout.sticky-header {
+  padding: 6rem 0 0 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 860px) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+a {
+  color: inherit;
+}
+
+.content p {
+  line-height: 1.5;
+  color: #41485a;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.content a {
+  color: #FF81D8;
+}
+
+img {
+  max-width: 100%;
+}
+
+.label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+</style>
