@@ -23,7 +23,7 @@ The design was originally adapted from the [Gridsome x Forestry starter template
 /
 ├── public/                     # Assets referenced in project
 │   ├── code-highlight.css      # Prism.js styling
-│   ├── favicon.svg
+│   ├── favicon.png
 |   └── uploads/                # Images and other assets for individual pages
 ├── src/
 │   ├── components/
