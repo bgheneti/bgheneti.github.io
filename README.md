@@ -1,6 +1,7 @@
 # Banti Gheneti - Personal Website
 
 [![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&style=for-the-badge&up_color=green&up_message=online&url=http://gheneti.com)](http://gheneti.com)
+[![Cloudflare Status](https://img.shields.io/website?down_color=red&down_message=offline&style=for-the-badge&up_color=green&up_message=online&url=https%3A//head.personal-website-3g4.pages.dev&logo=cloudflare&label=Cloudflare)](https://head.personal-website-3g4.pages.dev)
 [![Deploy Status](https://img.shields.io/github/actions/workflow/status/bgheneti/bgheneti.github.io/deploy.yml?branch=template&style=for-the-badge&logo=github-actions&label=Deploy)](https://github.com/bgheneti/bgheneti.github.io/actions/workflows/deploy.yml)
 
 Personal portfolio website built with Astro, featuring projects, links, and a clean, responsive design.
@@ -78,7 +79,13 @@ All commands are run from the root of the project:
 ### Deployment
 - **Auto-deploy**: Pushes to `template` branch trigger GitHub Actions
 - **Build**: Creates static files in `/dist/`
-- **Deploy**: Files deployed to `gh-pages` branch and Cloudflare (can be edited in deploy workflow).
+- **Deploy**: Files deployed to `gh-pages` branch and Cloudflare.
+  - disable CloudFlare or gh-pages deployment by commenting out steps in `.github/workflows/deploy.yml`
+  - If you use Cloudflare:
+    - set `CLOUDLFARE_API_TOKEN` in repo secrets
+    - set `CLOUDLFARE_ACCOUNT_ID` in repo secrets
+    - update `CLOUDFLARE_PROJECT_NAME` in `.github/workflows/deploy.yml`
+
 - **Live**: Available at <https://gheneti.com> via Cloudflare 
 ## 🎨 Design System
 
