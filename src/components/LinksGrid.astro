@@ -11,7 +11,7 @@ const sortedLinks = links.sort((a, b) => {
 <div class="links-list">
   {sortedLinks.map((link, index) => (
     <a href={link.data.url} class="link-link">
-      <div class={`link-item fade-in-up staggered-${Math.min(index + 1, 6)}`}>
+      <div class="link-item">
         <h2 class="link-title">{link.data.title}</h3>
         <p>{link.data.excerpt}<p>
       </div>

@@ -4,7 +4,6 @@ import { getCollection } from 'astro:content';
 // Get and sort projects by date (newest first)
 const projects = await getCollection('projects');
 const sortedProjects = projects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
----
 
 // Create alternating rows: 1 item, 2 items, 1 item, 2 items...
 function createAlternatingRows(projects) {
@@ -39,13 +38,8 @@ const rows = createAlternatingRows(sortedProjects);
       'project-row', 
       { 'single-item': row.isSingleItemRow, 'double-items': !row.isSingleItemRow }
     ]}>
-      {row.items.map((project, itemIdx) => {
-        // Calculate global index for staggered animation delays
-        const globalIndex = rows.slice(0, rowIdx).reduce((acc, r) => acc + r.items.length, 0) + itemIdx;
-        const animationDelay = `${(globalIndex + 1) * 0.1}s`;
-        
-        return (
-          <article class="project-card" style={`animation-delay: ${animationDelay}`}>
+      {row.items.map((project, itemIdx) => (
+          <article class="project-card" style={`animation-delay: ${(rows.slice(0, rowIdx).reduce((acc, r) => acc + r.items.length, 0) + itemIdx + 1) * 0.1}s`}>
             <a href={`/projects/${project.slug}`} class="project-link">
               {/* Project Thumbnail */}
               {project.data.thumbnail && (
@@ -71,8 +65,7 @@ const rows = createAlternatingRows(sortedProjects);
               </div>
             </a>
           </article>
-        );
-      })}
+      ))}
     </div>
   ))}
 </div>
