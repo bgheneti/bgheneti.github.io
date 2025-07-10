@@ -1,6 +1,6 @@
 ---
 date: 2020-06-02
-thumbnail: "/uploads/home-trees.jpg"
+thumbnail: "../assets/home-trees.jpg"
 title: Spring from my bedroom
 categories:
 - tree
@@ -10,4 +10,4 @@ project_bg_color: ''
 project_fg_color: ''
 
 ---
-![](/uploads/home-trees.jpg)
+![](../assets/home-trees.jpg)

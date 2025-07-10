@@ -3,7 +3,7 @@
   "dark_mode": false,
   "site_name": "Banti Gheneti",
   "site_description": "Creative technologist",
-  "hero_img": "uploads/b-0364-cropped.jpg",
+  "hero_img": "../content/assets/b-0364-cropped.jpg",
   "hero_content": [
     {
       "title": "Thinking",

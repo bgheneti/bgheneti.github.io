@@ -1,7 +1,11 @@
 ---
+import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import themeData from '../../data/theme.json';
+
+// Get theme data from content collection
+const theme = await getEntry('settings', 'theme');
+const themeData = theme.data;
 ---
 
 <Layout title={themeData.site_name} description={themeData.site_description} isHomePage={true}>

@@ -1,0 +1,16 @@
+---
+footer: "Copyright &copy; 2025"
+dark_mode: false
+site_name: "Banti Gheneti"
+site_description: "Creative technologist"
+hero_img: "../assets/b-0364-cropped.jpg"
+hero_content:
+  - title: "Thinking"
+    text: 'about <a href="https://www.righttohousing.com/" title="">housing justice</a>, <a href="https://bantibuli.bandcamp.com/music" title="">telling stories through soundscapes</a>, intentional community, and <a href="https://www.ocelli.co/" title="">worker-owned cooperatives</a>. Reach out to talk about or work together in any of these areas.'
+  - title: "In a past life"
+    text: 'I led the AI team at <a href="https://www.picklerobot.com/">Pickle Robot Co</a>. Before that, I worked on <a href="https://dsti.gov.sl/sierra-leone-introduces-new-e-justice-platform-to-improve-rural-courts-system/">interactive maps</a> for DSTI in Freetown, Sierra Leone. I''ve also taught autonomous boats how to <a href="https://techcrunch.com/2019/08/29/mits-autonomous-boat-robots-can-now-shapeshift-to-form-new-structures/">shapeshift</a> for my <a href="https://dspace.mit.edu/handle/1721.1/121672">thesis</a> in the <a href="http://senseable.mit.edu/roboat/">Senseable City Lab at MIT</a> and remember a thing or two about <a href="http://underactuated.mit.edu/">control systems and optimization</a>.'
+  - title: "Appreciate"
+    text: 'community radio (<a href="http://wmbr.org/">WMBR</a> dj, <a href="http://dublab.com/">dublab</a> listener), <a href="https://sidneygish.bandcamp.com/">local music</a> and concerts, nice walks to the river, tea (jasmine, white, licorice root, rooibos), <a href="http://mythaivegancafe.com/">plant-based food</a>, open-souce robot builds, reflective journaling, fingerpicking my guitar, miscellaneous diy projects, online Afaan Oromoo dictionaries and, of course, a good night''s rest.'
+  - title: "Home"
+    text: "is where my people are - Camberville, where I have lived several versions of myself and built significant community; New York, where I spent most of my childhood; Amsterdam, where I am \"from\" and routinely visit; and Finfinne, where I have family."
+---

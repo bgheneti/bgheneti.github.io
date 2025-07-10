@@ -5,3 +5,5 @@ src/.temp
 node_modules
 dist
 .astro
+appearance.json
+workspace.json

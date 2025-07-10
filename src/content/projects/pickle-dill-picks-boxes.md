@@ -1,6 +1,6 @@
 ---
 date: 2019-11-05
-thumbnail: "/uploads/dill_pick.gif"
+thumbnail: "../assets/dill_pick.gif"
 title: Pickle - Dill picks boxes
 categories:
 - Robotics

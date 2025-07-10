@@ -1,5 +1,9 @@
 ---
-import themeData from '../../data/theme.json';
+import { getEntry } from 'astro:content';
+
+// Get theme data from content collection
+const theme = await getEntry('settings', 'theme');
+const themeData = theme.data;
 ---
 
 <footer class="footer">

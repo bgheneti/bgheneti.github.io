@@ -21,10 +21,9 @@ The design was originally adapted from the [Gridsome x Forestry starter template
 
 ```text
 /
-├── public/                     # Assets referenced in project
+├── public/                     # Static assets
 │   ├── code-highlight.css      # Prism.js styling
-│   ├── favicon.png
-|   └── uploads/                # Images and other assets for individual pages
+│   └── favicon.png
 ├── src/
 │   ├── components/
 │   │   ├── Header.astro        # Navigation with mobile menu
@@ -34,17 +33,21 @@ The design was originally adapted from the [Gridsome x Forestry starter template
 │   │   └── LinksGrid.astro     # Links display grid
 │   ├── content/
 │   │   ├── config.ts           # Content collections config
+│   │   ├── assets/             # Images and other assets for projects
 │   │   ├── projects/           # Project markdown files
-│   │   └── links/              # Link markdown files
+│   │   ├── links/              # Link markdown files
+│   │   └── settings/           # Site settings and theme config
 │   ├── layouts/
 │   │   └── Layout.astro        # Base layout with global styles
-│   └── pages/
-│       ├── index.astro         # Home page
-│       ├── projects/
-│       │   ├── index.astro     # Projects listing
-│       │   └── [...slug].astro # Individual project pages
-│       └── links/
-│           └── index.astro     # Links page
+│   ├── pages/
+│   │   ├── index.astro         # Home page
+│   │   ├── projects/
+│   │   │   ├── index.astro     # Projects listing
+│   │   │   └── [...slug].astro # Individual project pages
+│   │   └── links/
+│   │       └── index.astro     # Links page
+│   └── plugins/
+│       └── remark-relative-images.js # Plugin for relative image paths
 ├── data/
 │   └── theme.json              # Site configuration and content
 ├── .github/workflows/
@@ -69,7 +72,10 @@ All commands are run from the root of the project:
 ### Content Management
 - **Projects**: Add `.md` files to `/src/content/projects/`
 - **Links**: Add `.md` files to `/src/content/links/`
+- **Assets**: Add images and media to `/src/content/assets/`
 - **Site Data**: Edit `/data/theme.json` for site settings
+- **Theme Settings**: Edit `/src/content/settings/theme.md` for additional theme configuration
+- **Obsidian Integration**: Optional - open `/src/content/` as an Obsidian vault for rich markdown editing
 
 ### Styling
 - **Global Styles**: `/src/layouts/Layout.astro`

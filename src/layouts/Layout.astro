@@ -1,7 +1,11 @@
 ---
+import { getEntry } from 'astro:content';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import themeData from '../../data/theme.json';
+
+// Get theme data from content collection
+const theme = await getEntry('settings', 'theme');
+const themeData = theme.data;
 
 export interface Props {
   title?: string;
@@ -138,8 +142,134 @@ a {
   color: var(--color-accent);
 }
 
+/* Global image defaults */
 img {
   max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Exception for logo and other inline images */
+img.logo,
+.home-link img {
+  display: inline !important;
+  max-width: none;
+}
+
+/* Astro Picture component defaults */
+picture {
+  display: block;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Content area images (markdown) */
+.content img,
+.content picture img {
+  height: auto !important;
+  margin: 2rem auto;
+  object-fit: contain;
+  max-width: min(100%, 800px); /* Limit to 800px or container width */
+}
+
+/* Image size variants for markdown content */
+.content img.small,
+.content picture.small img {
+  max-width: min(100%, 400px);
+}
+
+.content img.medium,
+.content picture.medium img {
+  max-width: min(100%, 600px);
+}
+
+.content img.large,
+.content picture.large img {
+  max-width: min(100%, 1000px);
+}
+
+.content img.full,
+.content picture.full img {
+  max-width: 100%;
+}
+
+/* Float variants for wrapping text */
+.content img.float-left {
+  float: left;
+  margin: 1rem 2rem 1rem 0;
+  max-width: min(45%, 400px);
+}
+
+.content img.float-right {
+  float: right;
+  margin: 1rem 0 1rem 2rem;
+  max-width: min(45%, 400px);
+}
+
+/* Video/iframe responsive styling */
+.content iframe {
+  max-width: min(100%, 800px);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto;
+  display: block;
+}
+
+/* Video size variants */
+.content iframe.small {
+  max-width: min(100%, 400px);
+}
+
+.content iframe.medium {
+  max-width: min(100%, 600px);
+}
+
+.content iframe.large {
+  max-width: min(100%, 1000px);
+}
+
+.content iframe.full {
+  max-width: 100%;
+}
+
+/* Responsive video wrapper for aspect ratio */
+.content .video-wrapper {
+  position: relative;
+  max-width: min(100%, 800px);
+  margin: 2rem auto;
+  aspect-ratio: 16 / 9;
+}
+
+.content .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .content img,
+  .content picture img {
+    margin: 1rem auto;
+  }
+  
+  .content iframe {
+    margin: 1rem auto;
+  }
+  
+  /* Remove floats on mobile */
+  .content img.float-left,
+  .content img.float-right {
+    float: none;
+    margin: 1rem auto;
+    max-width: 100%;
+  }
 }
 
 .label {
@@ -189,9 +319,27 @@ img {
 }
 
 .text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
 .text-accent { color: var(--color-accent); }
 .text-muted { color: var(--color-text-muted); }
 .text-light { color: var(--color-text-light); }
+
+/* Content area text alignment utilities */
+.content .center,
+.content .text-center {
+  text-align: center;
+}
+
+.content .left,
+.content .text-left {
+  text-align: left;
+}
+
+.content .right,
+.content .text-right {
+  text-align: right;
+}
 
 /* Interactive utilities */
 .card-base {

@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
+
 
 // Get and sort projects by date (newest first)
 const projects = await getCollection('projects');
@@ -43,7 +45,7 @@ const rows = createAlternatingRows(sortedProjects);
             <a href={`/projects/${project.slug}`} class="project-link">
               {/* Project Thumbnail */}
               {project.data.thumbnail && (
-                <img 
+                <Picture 
                   src={project.data.thumbnail} 
                   alt={project.data.title}
                   class="project-thumbnail"

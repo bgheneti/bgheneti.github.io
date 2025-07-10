@@ -1,13 +1,21 @@
 ---
-import themeData from '../../data/theme.json';
+import { getEntry } from 'astro:content';
+import { Picture } from 'astro:assets';
 
-const heroImage = themeData.hero_img;
+// Get theme data from content collection
+const theme = await getEntry('settings', 'theme');
+const themeData = theme.data;
+
+// The hero image is now properly imported through the content collection
+const heroImageSrc = themeData.hero_img;
 ---
 
 <div class="hero">
   <div style="width:100%">
     <div class="hero-txt">
-      <img class="hero-img fade-in-up staggered-1 hover-lift" src={`/${heroImage}`} alt="Hero image" />
+      {heroImageSrc && (
+        <Picture class="hero-img fade-in-up staggered-1 hover-lift" src={heroImageSrc} alt="Hero image" />
+      )}
       {themeData.hero_content.map((item) => (
         <div class="hero-content fade-in-up staggered-2">
           <div class="hero-title-wrapper">
@@ -44,6 +52,7 @@ const heroImage = themeData.hero_img;
   .hero-img {
     float: none !important;
     width: 100% !important;
+    height: auto !important;
     margin: 0 0 1rem 0 !important;
   }
   
@@ -89,10 +98,12 @@ const heroImage = themeData.hero_img;
 
 .hero-img {
   width: 45%;
+  height: auto;
   float: right;
   margin-left: 30px;
   margin-bottom: var(--spacing-md);
   transition: transform var(--animation-duration-base) var(--animation-easing);
+  object-fit: contain;
 }
 
 @media (hover: hover) {

@@ -1,5 +1,5 @@
 ---
-thumbnail: "/uploads/EC_room.jpg"
+thumbnail: "../assets/EC_room.jpg"
 title: East Campus dorm room loft design
 date: 2015-09-04
 categories:
@@ -10,4 +10,7 @@ project_bg_color: ''
 project_fg_color: ""
 
 ---
-![](/uploads/EC_room.jpg)
+
+<img src="../assets/EC_room.jpg" class="medium" alt="EC room design"/>
+
+
