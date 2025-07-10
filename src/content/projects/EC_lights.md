@@ -12,15 +12,17 @@ project_fg_color: ''
 
 ---
 
-<center>
+
 <iframe src="https://www.youtube.com/embed/87-u1DebjBs" class="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<center>
 _~ timelapse I made of the East Campus REX projects with LED lights at the end ~_
-
+</center>
 <br>
 <br>
 
 ![](../assets/EC_lights.jpg)
-_~ fort lights at night ~_
 
+<center>
+_~ fort lights at night ~_
 </center>

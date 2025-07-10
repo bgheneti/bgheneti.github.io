@@ -6,7 +6,7 @@ categories:
 - MIT
 - East Campus
 - Design
-project_bg_color: ''
+project_bg_color: ""
 project_fg_color: ""
 
 ---

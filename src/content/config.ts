@@ -18,6 +18,7 @@ const links = defineCollection({
     title: z.string(),
     url: z.string(),
     excerpt: z.string(),
+    date: z.coerce.date(),
   }),
 });
 
