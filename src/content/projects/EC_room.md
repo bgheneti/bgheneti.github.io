@@ -11,6 +11,10 @@ project_fg_color: ""
 
 ---
 
-<img src="../assets/EC_room.jpg" class="small" alt="EC room design"/>
+<img src="../assets/EC_room.jpg" class="medium" alt="EC room design"/>
+
+
+<img src="../assets/EC_room_2.jpg" class="medium" />
+
 
 
