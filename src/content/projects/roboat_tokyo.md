@@ -31,3 +31,11 @@ I was part of the roboat project for my Master's research. Below are some of my 
 
 
 <center><i>"Shapeshifting" Autonomous Boats: demo from my thesis work </i></center>
+
+<br><br>
+
+## Coverage of my research in media
+
+#### [TechCrunch](https://techcrunch.com/2019/08/29/mits-autonomous-boat-robots-can-now-shapeshift-to-form-new-structures/)
+#### [MIT News](https://news.mit.edu/2019/roboats-autonomous-connect-assemble-0829)
+#### [The Robot Report](https://www.therobotreport.com/roboats-autonomous-boats-from-mit-and-ams-institute-can-connect-for-different-applications/)
