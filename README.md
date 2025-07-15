@@ -1,4 +1,4 @@
-# Astro-Powered Static Personal Site with Obsidian Integration
+# Astro-Powered Static-Site with Obsidian Integration
 
 [![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&style=for-the-badge&up_color=green&up_message=online&url=http://gheneti.com)](http://gheneti.com)
 [![Cloudflare Status](https://img.shields.io/website?down_color=red&down_message=offline&style=for-the-badge&up_color=green&up_message=online&url=https%3A//head.personal-website-3g4.pages.dev&logo=cloudflare&label=Cloudflare)](https://head.personal-website-3g4.pages.dev)
