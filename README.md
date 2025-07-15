@@ -4,12 +4,11 @@
 [![Cloudflare Status](https://img.shields.io/website?down_color=red&down_message=offline&style=for-the-badge&up_color=green&up_message=online&url=https%3A//head.personal-website-3g4.pages.dev&logo=cloudflare&label=Cloudflare)](https://head.personal-website-3g4.pages.dev)
 [![Deploy Status](https://img.shields.io/github/actions/workflow/status/bgheneti/bgheneti.github.io/deploy.yml?branch=template&style=for-the-badge&logo=github-actions&label=Deploy)](https://github.com/bgheneti/bgheneti.github.io/actions/workflows/deploy.yml)
 
+<kbd><a href="https://gheneti.com"><img src="https://api.screenshotmachine.com?key=143530&url=gheneti.com&dimension=1000x500&cacheLimit=1&delay=1000" height="250"/><kbd/>
+
 Personal portfolio website built with Astro, featuring projects, links, and a clean, responsive design.
 
 The design was originally adapted from the [Gridsome x Forestry starter template](https://github.com/itsnwa/gridsome-forestry-starter) for Vue.js. This repo only uses Astro.
-
-![]([](https://api.screenshotmachine.com?key=143530&url=gheneti.com&dimension=1024xfull&cacheLimit=1))
-
 
 ## ✨ Features
 
