@@ -77,7 +77,7 @@ All commands are run from the root of the project:
 - **Assets**: Add images and media to `/src/content/assets/`
 - **Site Data**: Edit `/data/theme.json` for site settings
 - **Theme Settings**: Edit `/src/content/settings/theme.md` for additional theme configuration
-- **Obsidian Integration**: Optional - open `/src/content/` as an Obsidian vault for rich markdown editing
+- **Obsidian Integration**: Optional - open `/src/content/` as an Obsidian vault for rich markdown editing. Obsidian settings, templates (for Links and Projects), and all content (Links, Projects and Front Matter) are stored here.
 
 ### Styling
 - **Global Styles**: `/src/layouts/Layout.astro`
