@@ -8,6 +8,9 @@ Personal portfolio website built with Astro, featuring projects, links, and a cl
 
 The design was originally adapted from the [Gridsome x Forestry starter template](https://github.com/itsnwa/gridsome-forestry-starter) for Vue.js. This repo only uses Astro.
 
+![]([](https://api.screenshotmachine.com?key=143530&url=gheneti.com&dimension=1024xfull&cacheLimit=1))
+
+
 ## ✨ Features
 
 - **Responsive Design** - Mobile-first with hamburger navigation
