@@ -6,7 +6,7 @@ site_description: "Creative technologist"
 hero_img: "../assets/b-0364-cropped.jpg"
 hero_content:
   - title: "Cultivating"
-    text: '<a href="https://www.cambridgehousingjustice.com/" title="">housing justice</a>, <a href="https://open.spotify.com/artist/5v28Cgw6z9KajugWVj5U3y" title="">storytelling with soundscapes</a>, intentional community, and <a href="https://www.overstory.com/" title="">vegetation intelligence for grid resilience</a>. Give me a poke to chat about or colab on any of these things.'
+    text: '<a href="https://www.cambridgehousingjustice.com/" title="">housing justice</a>, <a href="https://open.spotify.com/artist/5v28Cgw6z9KajugWVj5U3y" title="">storytelling with soundscapes</a>, intentional community, and <a href="https://www.overstory.com/" title="">vegetation mapping for grid resilience</a>. Give me a poke to chat about or colab on any of these things.'
   - title: "In a past life"
     text: 'taught computers how to see plants at <a href="https://www.understory.ai/">Understory</a> and move boxes at <a href="https://www.picklerobot.com/">Pickle Robot Co</a>. Before that, I built <a href="https://www.dsti.gov.sl/dsti-partners-with-orange-to-create-sierra-leones-first-school-for-coding-at-ipam/">interactive maps</a> for DSTI in Freetown, Sierra Leone. I''ve also taught autonomous boats how to <a href="https://techcrunch.com/2019/08/29/mits-autonomous-boat-robots-can-now-shapeshift-to-form-new-structures/">shapeshift</a> for my <a href="https://dspace.mit.edu/handle/1721.1/121672">thesis</a> in the <a href="https://roboat.org/">Senseable City Lab at MIT</a> and remember a thing or two about <a href="http://underactuated.mit.edu/"> optimization</a>.'
   - title: "Appreciating"
